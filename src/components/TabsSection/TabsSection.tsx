@@ -56,7 +56,7 @@ const TabsSection = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+       Table
       </TabPanel>
     </Box>
   );
