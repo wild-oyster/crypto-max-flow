@@ -1,7 +1,5 @@
-import React from "react";
-
 function App() {
-  return <div className="bg-black text-white h-full text-xl">hi</div>;
+  return <div className="bg-black text-white h-full text-">hi</div>;
 }
 
 export default App;
