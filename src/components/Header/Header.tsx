@@ -1,6 +1,11 @@
-import TabsSection from "../TabsSection/TabsSection";
+import TabsSection, { TabsSectionProps } from "../TabsSection/TabsSection";
 
-const Header = () => {
+import { FunctionComponent } from "react";
+
+const Header: FunctionComponent<TabsSectionProps> = ({
+  handleChange,
+  value,
+}) => {
   return (
     <div>
       <p className="text-gray-600">In the past 24 hours</p>
@@ -9,7 +14,7 @@ const Header = () => {
         <b className="text-lime-700 text-2xl font-semi-bold">2.49%</b>
       </h1>
 
-      <TabsSection />
+      <TabsSection handleChange={handleChange} value={value} />
     </div>
   );
 };

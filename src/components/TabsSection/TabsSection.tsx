@@ -1,10 +1,9 @@
 import * as React from "react";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 
-import DataTable from "../DataTable/DataTable";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -12,7 +11,7 @@ interface TabPanelProps {
   value: number;
 }
 
-const TabPanel = (props: TabPanelProps) => {
+export const TabPanel = (props: TabPanelProps) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -39,13 +38,15 @@ const a11yProps = (index: number) => {
   };
 };
 
-const TabsSection = () => {
-  const [value, setValue] = React.useState(0);
+export type TabsSectionProps = {
+  value: number;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+};
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
+const TabsSection: React.FunctionComponent<TabsSectionProps> = ({
+  handleChange,
+  value,
+}) => {
   return (
     <Box sx={{ width: "100%", mt: 5 }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -57,9 +58,6 @@ const TabsSection = () => {
           <Tab label="All assets" {...a11yProps(0)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        <DataTable />
-      </TabPanel>
     </Box>
   );
 };
