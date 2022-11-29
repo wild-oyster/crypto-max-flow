@@ -4,6 +4,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+import DataTable from "../DataTable/DataTable";
+
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -56,7 +58,7 @@ const TabsSection = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-       Table
+        <DataTable />
       </TabPanel>
     </Box>
   );
